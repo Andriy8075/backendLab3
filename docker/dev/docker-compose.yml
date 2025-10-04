@@ -1,0 +1,18 @@
+services:
+  app:
+    image: python:3.11.3-slim-bullseye
+    working_dir: /var/www/
+    container_name: app
+    environment:
+      PORT: "8080"
+      FLASK_ENV: "development"
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ../..:/var/www
+    command: ["sh", "./docker/dev/entrypoint.sh"]

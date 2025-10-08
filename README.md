@@ -1,15 +1,15 @@
 # Інструкція для запуску проєкту
 
 1. Склонувати репозиторій
-2. Перейти в папку з потрібний файлом docker-compose (backendLab1/docker/dev бо backendLab1/docker/production)
+2. Перейти в папку з потрібний файлом docker-compose (backendLab2/docker/dev бо backendLab2/docker/production)
 3. білдити проєкт через docker-compose up
 4. відкрити проєкт в браузері
 
 #### Для швидкого запуску можна скопіювати і запустити в терміналі команди
 
 ```bash
-    git clone https://github.com/Andriy8075/backendLab1
-    cd backendLab1/docker/dev
+    git clone https://github.com/Andriy8075/backendLab2
+    cd backendLab2/docker/dev
     docker compose up
 ```
 Після цього сайт буде працювати на порті 8080:
@@ -20,8 +20,8 @@ http://127.0.0.1:8080
 Команди для запуску в production:
 
 ```bash
-    git clone https://github.com/Andriy8075/backendLab1
-    cd backendLab1/docker/production
+    git clone https://github.com/Andriy8075/backendLab2
+    cd backendLab2/docker/production
     docker compose up
 ```
 Після цього сайт буде працювати на порті 80 (стандартному для http):
@@ -29,6 +29,6 @@ http://127.0.0.1
 
 # Посилання на працюючий сайт:
 
-https://backendlab1-1.onrender.com/
+https://backendLab2-1.onrender.com/
 
 Під час деплою було використано production build (з папки docker/production)

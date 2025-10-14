@@ -3,14 +3,15 @@ from ..pools import categories
 class Category:
     next_id = 1
 
-    def __init__(self, name):
+    def __init__(self, name, user_id):
         self.name = name
+        self.user_id = user_id
         self.id = Category.next_id
         Category.next_id += 1
 
     @staticmethod
-    def create(name):
-        category = Category(name)
+    def create(name, user_id):
+        category = Category(name, user_id)
         categories.append(category)
         return category
 
@@ -29,5 +30,6 @@ class Category:
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name
+            'name': self.name,
+            'user_id': self.user_id,
         }

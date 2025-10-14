@@ -1,5 +1,16 @@
 from flask import Flask
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    
+    # Import and register blueprints
+    from app.routes.general import general_bp
+    from app.routes.user import user_bp
+    
+    app.register_blueprint(general_bp)
+    app.register_blueprint(user_bp)
+    
+    return app
 
-from app import routes
+# Create app instance for Flask CLI
+app = create_app()

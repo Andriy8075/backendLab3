@@ -32,3 +32,9 @@ http://127.0.0.1
 https://backendLab2-1.onrender.com/
 
 Під час деплою було використано production build (з папки docker/production)
+
+Postman колекція знаходиться в файлі postman_collection.json
+
+Посилання на Postman flow:
+https://andriiashomka.postman.co/workspace/My-Workspace~7862311b-2d89-4ce6-862a-9d07de91b827/flow/68eea680b7daff00145c341b
+

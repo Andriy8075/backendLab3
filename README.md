@@ -33,6 +33,8 @@ https://backendLab2-1.onrender.com/
 
 Під час деплою було використано production build (з папки docker/production)
 
+# Postman
+
 Postman колекція знаходиться в файлі postman_collection.json
 
 Посилання на Postman flow:

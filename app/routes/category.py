@@ -27,6 +27,6 @@ def get_categories():
 @category_bp.route('/category/<int:id>', methods=['DELETE'])
 def delete_category(id):
     if Category.delete(id):
-        return jsonify({'message': 'User deleted successfully'}), 200
+        return jsonify({'message': 'Category deleted successfully'}), 200
     else:
-        return jsonify({'error': 'User not found'}), 404
+        return jsonify({'error': 'Category not found'}), 404

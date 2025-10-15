@@ -22,14 +22,14 @@ def get_users():
 
     return jsonify(dictionaries)
 
-@user_bp.route('/users/<int:id>', methods=['GET'])
+@user_bp.route('/user/<int:id>', methods=['GET'])
 def get_user(id):
     user = User.get_by_id(id)
     if user is None:
         return jsonify({'error': 'User not found'}), 404
     return jsonify(user)
 
-@user_bp.route('/users/<int:id>', methods=['DELETE'])
+@user_bp.route('/user/<int:id>', methods=['DELETE'])
 def delete_user(id):
     if User.delete(id):
         return jsonify({'message': 'User deleted successfully'}), 200

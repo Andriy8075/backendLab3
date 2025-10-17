@@ -16,3 +16,15 @@ services:
     volumes:
       - ../..:/var/www
     command: ["sh", "./docker/dev/entrypoint.sh"]
+
+  db:
+    image: postgres:15.4-alpine3.18
+    container_name: postgres-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data

@@ -1,40 +1,41 @@
-from ..pools import users
+from app.extensions import db
 
-class User:
-    next_id = 1
 
-    def __init__(self, name):
-        self.name = name
-        self.id = User.next_id
-        User.next_id += 1
+class User(db.Model):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
 
     @staticmethod
     def create(name):
-        user = User(name)
-        users.append(user)
+        user = User(name=name)
+        db.session.add(user)
+        db.session.commit()
         return user
 
     @staticmethod
     def get_all():
-        return users
+        return User.query.all()
 
     @staticmethod
     def get_by_id(id):
-        for user in users:
-            if user.id == id:
-                return user.to_dict()
-        return None
+        user = User.query.get(id)
+        if user is None:
+            return None
+        return user.to_dict()
 
     @staticmethod
     def delete(id):
-        for i, user in enumerate(users):
-            if user.id == id:
-                users.pop(i)
-                return True
-        return False
+        user = User.query.get(id)
+        if user is None:
+            return False
+        db.session.delete(user)
+        db.session.commit()
+        return True
 
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name
+            'name': self.name,
         }

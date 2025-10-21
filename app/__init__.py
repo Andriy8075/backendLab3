@@ -14,6 +14,8 @@ def create_app():
 
     # Ensure models are imported so migrations can detect them
     from app.models.user import User  # noqa: F401
+    from app.models.category import Category  # noqa: F401
+    from app.models.record import Record  # noqa: F401
 
     # Import and register blueprints
     from app.routes.general import general_bp

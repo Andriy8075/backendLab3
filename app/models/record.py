@@ -1,38 +1,39 @@
 from datetime import datetime
+from app.extensions import db
 
-from ..pools import records
 
-class Record:
-    next_id = 1
+class Record(db.Model):
+    __tablename__ = 'records'
 
-    def __init__(self, user_id, category_id, sum):
-        self.user_id = user_id
-        self.category_id = category_id
-        self.sum = sum
-        self.id = Record.next_id
-        self.date_time = datetime.now()
-        Record.next_id += 1
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
+    sum = db.Column(db.Float, nullable=False)
+    date_time = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     @staticmethod
     def create(user_id, category_id, sum):
-        record = Record(user_id, category_id, sum)
-        records.append(record)
+        record = Record(user_id=user_id, category_id=category_id, sum=sum)
+        db.session.add(record)
+        db.session.commit()
         return record
 
     @staticmethod
     def get_by_id(id):
-        for record in records:
-            if record.id == id:
-                return record.to_dict()
-        return None
+        record = Record.query.get(id)
+        if record is None:
+            return None
+        return record.to_dict()
 
     @staticmethod
     def delete(id):
-        for record in records:
-            if record.id == id:
-                records.remove(record)
-                return record.to_dict()
-        return None
+        record = Record.query.get(id)
+        if record is None:
+            return None
+        record_dict = record.to_dict()
+        db.session.delete(record)
+        db.session.commit()
+        return record_dict
 
     def to_dict(self):
         return {

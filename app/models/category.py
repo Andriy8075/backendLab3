@@ -1,31 +1,32 @@
-from ..pools import categories
+from app.extensions import db
 
-class Category:
-    next_id = 1
 
-    def __init__(self, name, user_id):
-        self.name = name
-        self.user_id = user_id
-        self.id = Category.next_id
-        Category.next_id += 1
+class Category(db.Model):
+    __tablename__ = 'categories'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     @staticmethod
     def create(name, user_id):
-        category = Category(name, user_id)
-        categories.append(category)
+        category = Category(name=name, user_id=user_id)
+        db.session.add(category)
+        db.session.commit()
         return category
 
     @staticmethod
     def get_all():
-        return categories
+        return Category.query.all()
 
     @staticmethod
     def delete(id):
-        for i, user in enumerate(categories):
-            if user.id == id:
-                categories.pop(i)
-                return True
-        return False
+        category = Category.query.get(id)
+        if category is None:
+            return False
+        db.session.delete(category)
+        db.session.commit()
+        return True
 
     def to_dict(self):
         return {

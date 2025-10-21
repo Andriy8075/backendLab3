@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields, validate
-from app.config.models.user import name_max_length
+from app.config.models_validation.user import name_max_length
 
 
 class UserSchema(Schema):

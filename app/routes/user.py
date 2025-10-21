@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from marshmallow import ValidationError
 from app.models.user import User
-from app.schemas.user_schema import UserSchema, UserCreateSchema, UserUpdateSchema
+from app.schemas.user_schema import UserSchema, UserCreateSchema
 
 user_bp = Blueprint('user', __name__)
 

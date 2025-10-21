@@ -6,6 +6,10 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
+    
+    # Relationships
+    categories = db.relationship('Category', back_populates='user', lazy='dynamic', cascade='all, delete-orphan')
+    records = db.relationship('Record', back_populates='user', lazy='dynamic', cascade='all, delete-orphan')
 
     @staticmethod
     def create(name):

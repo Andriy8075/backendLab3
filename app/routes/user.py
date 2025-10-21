@@ -17,7 +17,6 @@ def create_user():
         
         # Serialize response using Marshmallow
         user_schema = UserSchema()
-        print(user_schema.dump(user))
         return jsonify({
             'message': 'user created successfully',
             'user': user_schema.dump(user)

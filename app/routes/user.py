@@ -13,7 +13,7 @@ def create_user():
         data = schema.load(request.form)
         
         # Create user
-        user = User.create(data['name'])
+        user = User.create(data['name'], data['default_currency'])
         
         # Serialize response using Marshmallow
         user_schema = UserSchema()

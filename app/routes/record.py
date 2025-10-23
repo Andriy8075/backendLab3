@@ -13,7 +13,7 @@ def create_record():
         data = schema.load(request.form)
         
         # Create record
-        record = Record.create(data['user_id'], data['category_id'], data['sum'])
+        record = Record.create(data['category_id'], data['sum'], data.get('currency'))
         
         # Serialize response using Marshmallow
         record_schema = RecordSchema()

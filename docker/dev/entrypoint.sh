@@ -11,10 +11,7 @@ if [ ! -d "./app/migrations" ]; then
   echo "Migrations folder not found. Initializing migrations..."
   flask db init
   flask db migrate -m "initial migration"
-  flask db upgrade
-else
-  echo "Migrations folder exists. Applying pending migrations..."
-  flask db upgrade
 fi
+flask db upgrade
 
 flask --app app run --host 0.0.0.0 --port 8080 --reload

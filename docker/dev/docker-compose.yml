@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
     working_dir: /var/www/
     container_name: app
+    restart: always
     environment:
       PORT: "8080"
       FLASK_ENV: "development"
@@ -22,7 +23,7 @@ services:
   db:
     image: postgres:15.4-alpine3.18
     container_name: postgres-db
-    restart: unless-stopped
+    restart: always
     environment:
       POSTGRES_PASSWORD: qwerty
       POSTGRES_DB: db

@@ -1,6 +1,7 @@
 from marshmallow import Schema, fields, validate, validates_schema, ValidationError
 from app.config.models_validation.category import name_max_length
 from app.models.user import User
+from app.models.category import Category
 
 
 class CategorySchema(Schema):
@@ -23,3 +24,11 @@ class CategoryCreateSchema(Schema):
             user = User.query.get(data['user_id'])
             if user is None:
                 raise ValidationError('User with specified ID does not exist', field_name='user_id')
+
+    @validates_schema
+    def validate_unique_category_name(self, data, **kwargs):
+        """Validate that the category name is unique for the user"""
+        if 'name' in data:
+            category = Category.query.filter_by(name=data['name'], user_id=data['user_id']).first()
+            if category is not None:
+                raise ValidationError('Category with this name already exists for this user', field_name='name')

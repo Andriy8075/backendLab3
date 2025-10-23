@@ -1,6 +1,11 @@
 set -e
 
 pip install -r docker/dev/requirements.txt
+if [ ! -f "docker/dev/.env" ]; then
+  cp docker/dev/.env.example docker/dev/.env
+fi
+
+echo "PATH_TO_DOT_ENV=docker/dev/.env" > app/path_to_dot_env
 
 until pg_isready -h db -p 5432 -U postgres; do
   echo "Waiting for PostgreSQL..."

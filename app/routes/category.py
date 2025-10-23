@@ -8,14 +8,11 @@ category_bp = Blueprint('category', __name__)
 @category_bp.route('/category', methods=['POST'])
 def create_category():
     try:
-        # Validate input data using Marshmallow
         schema = CategoryCreateSchema()
         data = schema.load(request.form)
-        
-        # Create category
+
         category = Category.create(data['name'], data['user_id'])
-        
-        # Serialize response using Marshmallow
+
         category_schema = CategorySchema()
         return jsonify({
             'message': 'category created successfully',

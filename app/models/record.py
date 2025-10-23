@@ -10,8 +10,7 @@ class Record(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     sum = db.Column(db.Float, nullable=False)
     date_time = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    
-    # Relationships
+
     user = db.relationship('User', back_populates='records')
     category = db.relationship('Category', back_populates='records')
 

@@ -1,0 +1,44 @@
+# Docker data and volumes
+docker/dev/db_data/
+docker/*/db_data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+README.md
+
+# Development files
+old_env/
+req.txt
+postman_collection_lab_3.json
+
+# Large files that aren't needed in production
+*.log
+*.tmp

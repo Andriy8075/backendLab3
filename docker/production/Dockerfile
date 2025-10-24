@@ -5,6 +5,9 @@ WORKDIR /app
 COPY docker/production/requirements.txt .
 
 RUN python -m pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && \
+    apt-get install -y postgresql-client curl && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY docker/production/env env
 RUN if [ -f env/.env ]; then \
@@ -17,8 +20,3 @@ RUN if [ -f env/.env ]; then \
 COPY . /app
 
 RUN echo "PATH_TO_DOT_ENV=env/.env" > app/path_to_dot_env
-
-
-EXPOSE 8070
-
-CMD ["gunicorn", "--bind", "0.0.0.0:8070", "app:app"]

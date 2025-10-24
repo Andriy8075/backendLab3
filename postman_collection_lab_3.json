@@ -67,14 +67,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{domain}}/user/1",
+							"raw": "http://{{domain}}/user/{{id}}",
 							"protocol": "http",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"user",
-								"1"
+								"{{id}}"
 							]
 						}
 					},
@@ -193,7 +193,7 @@
 								},
 								{
 									"key": "category_id",
-									"value": "2",
+									"value": "{{category_id}}",
 									"type": "text"
 								}
 							]

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "d74918d6-f9e0-48cb-b615-e382e5de6a46",
-		"name": "backendLabs",
+		"_postman_id": "ab51c8a0-30bd-4cd8-abab-328126bb13f5",
+		"name": "backendLabswithCurrency",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "46810625"
 	},
@@ -20,6 +20,11 @@
 								{
 									"key": "name",
 									"value": "Andrii",
+									"type": "text"
+								},
+								{
+									"key": "default_currency",
+									"value": "UAH",
 									"type": "text"
 								}
 							]
@@ -187,13 +192,8 @@
 									"type": "text"
 								},
 								{
-									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "text"
-								},
-								{
 									"key": "category_id",
-									"value": "{{category_id}}",
+									"value": "2",
 									"type": "text"
 								}
 							]

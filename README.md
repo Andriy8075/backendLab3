@@ -38,5 +38,10 @@ https://backendLab2-1.onrender.com/
 Postman колекція знаходиться в файлі postman_collection.json
 
 Посилання на Postman flow:
-https://andriiashomka.postman.co/workspace/My-Workspace~7862311b-2d89-4ce6-862a-9d07de91b827/flow/68eea680b7daff00145c341b
+https://andriiashomka.postman.co/workspace/My-Workspace~7862311b-2d89-4ce6-862a-9d07de91b827/flow/68fa6edc08102d0014d69bf0
+
+# Обчислення варіанту:
+
+Група ІМ-34. 34 % 3 = 1. Тому в цій (третій) лабораторній роботі додано 
+валюти для записів та валюти за замовчуванням у користувачів
 

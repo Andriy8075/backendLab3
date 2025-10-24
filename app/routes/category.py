@@ -24,33 +24,16 @@ def create_category():
             'error': 'Validation error',
             'messages': err.messages
         }), 400
-    except Exception as e:
-        return jsonify({
-            'error': 'Internal server error',
-            'message': str(e)
-        }), 500
 
 @category_bp.route('/category', methods=['GET'])
 def get_categories():
-    try:
-        categories = Category.get_all()
-        category_schema = CategorySchema(many=True)
-        return jsonify(category_schema.dump(categories)), 200
-    except Exception as e:
-        return jsonify({
-            'error': 'Internal server error',
-            'message': str(e)
-        }), 500
+    categories = Category.get_all()
+    category_schema = CategorySchema(many=True)
+    return jsonify(category_schema.dump(categories)), 200
 
 @category_bp.route('/category/<int:id>', methods=['DELETE'])
 def delete_category(id):
-    try:
-        if Category.delete(id):
-            return jsonify({'message': 'Category deleted successfully'}), 200
-        else:
-            return jsonify({'error': 'Category not found'}), 404
-    except Exception as e:
-        return jsonify({
-            'error': 'Internal server error',
-            'message': str(e)
-        }), 500
+    if Category.delete(id):
+        return jsonify({'message': 'Category deleted successfully'}), 200
+    else:
+        return jsonify({'error': 'Category not found'}), 404

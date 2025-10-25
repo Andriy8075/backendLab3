@@ -27,18 +27,9 @@ http://127.0.0.1:8080
 Після цього сайт буде працювати на порті 80 (стандартному для http):
 http://127.0.0.1
 
-# Посилання на працюючий сайт:
-
-https://backendLab2-1.onrender.com/
-
-Під час деплою було використано production build (з папки docker/production)
-
 # Postman
 
 Postman колекція знаходиться в файлі postman_collection.json
-
-Посилання на Postman flow:
-https://andriiashomka.postman.co/workspace/My-Workspace~7862311b-2d89-4ce6-862a-9d07de91b827/flow/68fa6edc08102d0014d69bf0
 
 # Обчислення варіанту:
 

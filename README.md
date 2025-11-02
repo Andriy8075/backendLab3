@@ -17,15 +17,11 @@ http://127.0.0.1:8080
 
 Ці команди запустять сайт в режимі розробки (development build)
 
-Команди для запуску в production:
+# Посилання на працюючий сайт:
 
-```bash
-    git clone https://github.com/Andriy8075/backendLab2
-    cd backendLab2/docker/production
-    docker compose up
-```
-Після цього сайт буде працювати на порті 80 (стандартному для http):
-http://127.0.0.1
+https://backend-lab-3-latest.onrender.com/
+
+Під час деплою було використано production build (з папки docker/production)
 
 # Postman
 

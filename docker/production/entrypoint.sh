@@ -1,15 +1,14 @@
+#!/bin/bash
 set -e
 
-until pg_isready -h db -p 5432 -U postgres; do
-  echo "Waiting for PostgreSQL..."
+source env/.env
+
+export PGSSLMODE=require
+
+until pg_isready -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USERNAME" --dbname="$DB_DATABASE"; do
+  echo "Waiting for PostgreSQL at $DB_HOST:$DB_PORT..."
   sleep 2
 done
 
-if [ ! -d "./app/migrations" ]; then
-  echo "Migrations folder not found. Initializing migrations..."
-  flask db init
-  flask db migrate -m "initial migration"
-fi
-flask db upgrade
 
-gunicorn --bind 0.0.0.0:8070 app:app
+gunicorn --bind 0.0.0.0:8070 --timeout 120 --workers 2 app:app

@@ -15,7 +15,6 @@ def create_app():
     app.config.setdefault('SQLALCHEMY_TRACK_MODIFICATIONS', SQLALCHEMY_TRACK_MODIFICATIONS)
 
     debug = os.getenv('DEBUG', 'False').lower() == 'true'
-    print(debug)
 
     app.config['DEBUG'] = debug
     app.config['PROPAGATE_EXCEPTIONS'] = debug

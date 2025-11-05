@@ -1,15 +1,15 @@
 # Інструкція для запуску проєкту
 
 1. Склонувати репозиторій
-2. Перейти в папку з потрібний файлом docker-compose (backendLab2/docker/dev бо backendLab2/docker/production)
+2. Перейти в папку backendLab4/docker/dev 
 3. білдити проєкт через docker-compose up
 4. відкрити проєкт в браузері
 
 #### Для швидкого запуску можна скопіювати і запустити в терміналі команди
 
 ```bash
-    git clone https://github.com/Andriy8075/backendLab2
-    cd backendLab2/docker/dev
+    git clone https://github.com/Andriy8075/backendLab4
+    cd backendLab4/docker/dev
     docker compose up
 ```
 Після цього сайт буде працювати на порті 8080:
@@ -25,7 +25,10 @@ https://backend-lab-3-latest.onrender.com/
 
 # Postman
 
-Postman колекція знаходиться в файлі postman_collection.json
+Postman колекція знаходиться в файлі postman_collection_lab_3.json
+
+Посилання на Postman flow:
+https://andriiashomka.postman.co/workspace/My-Workspace~7862311b-2d89-4ce6-862a-9d07de91b827/collection/46810625-ab51c8a0-30bd-4cd8-abab-328126bb13f5?action=share&source=copy-link&creator=46810625
 
 # Обчислення варіанту:
 
